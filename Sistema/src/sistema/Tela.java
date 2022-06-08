@@ -1,6 +1,12 @@
 
 package sistema;
 
+import java.awt.Insets;
+import java.awt.Toolkit;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
 import javax.swing.JOptionPane;
 
 
@@ -9,6 +15,16 @@ public class Tela extends javax.swing.JFrame {
    
     public Tela() {
         initComponents();
+//        Toolkit tk = Toolkit.getDefaultToolkit();
+//        int xSize = (int) tk.getScreenSize().getWidth();
+//        int ySize = (int) tk.getScreenSize().getHeight();
+//        
+//        Insets scnMax = Toolkit.getDefaultToolkit().getScreenInsets(getGraphicsConfiguration());
+//        
+//        int tescBarsize = scnMax.bottom;
+//        
+//        this.setSize(xSize, ySize - tescBarsize);
+        
     }
 
     /**
@@ -83,6 +99,19 @@ public class Tela extends javax.swing.JFrame {
 
     
     public static void main(String args[]) {
+        try {
+            Connection con;
+            Statement st;
+            Class.forName("com.mysql.jdbc.Driver");
+                con = DriverManager.getConnection("jdbc:mysql://localhost:3306/psctrabalho", "root", "");
+            st = con.createStatement();
+            st.executeUpdate("insert into usuario values ('1','Test', '123', 'AD')");
+            JOptionPane.showMessageDialog(null, "Dados Inseridos");
+        } catch(ClassNotFoundException ex){
+            JOptionPane.showMessageDialog(null, "Driver Não está na bibilioteca");
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Erro na conexão no Banco de Dados");
+        }
        
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
