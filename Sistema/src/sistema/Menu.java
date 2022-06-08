@@ -26,42 +26,97 @@ public class Menu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
+        jdpprincipal = new javax.swing.JDesktopPane();
+        jMenuBar2 = new javax.swing.JMenuBar();
+        bmCadastro = new javax.swing.JMenu();
+        miCadProduto = new javax.swing.JMenuItem();
+        miCadADM = new javax.swing.JMenuItem();
+        jMenu4 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        jMenu1.setText("File");
-        jMenu1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenu1ActionPerformed(evt);
+        setTitle("Menu");
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
             }
         });
-        jMenuBar1.add(jMenu1);
 
-        jMenu2.setText("Edit");
-        jMenuBar1.add(jMenu2);
+        javax.swing.GroupLayout jdpprincipalLayout = new javax.swing.GroupLayout(jdpprincipal);
+        jdpprincipal.setLayout(jdpprincipalLayout);
+        jdpprincipalLayout.setHorizontalGroup(
+            jdpprincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 600, Short.MAX_VALUE)
+        );
+        jdpprincipalLayout.setVerticalGroup(
+            jdpprincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 366, Short.MAX_VALUE)
+        );
 
-        setJMenuBar(jMenuBar1);
+        bmCadastro.setText("Cadastro");
+        bmCadastro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bmCadastroActionPerformed(evt);
+            }
+        });
+
+        miCadProduto.setText("Cadastro Produto");
+        miCadProduto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miCadProdutoActionPerformed(evt);
+            }
+        });
+        bmCadastro.add(miCadProduto);
+
+        miCadADM.setText("CadastroADM");
+        miCadADM.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miCadADMActionPerformed(evt);
+            }
+        });
+        bmCadastro.add(miCadADM);
+
+        jMenuBar2.add(bmCadastro);
+
+        jMenu4.setText("Edit");
+        jMenuBar2.add(jMenu4);
+
+        setJMenuBar(jMenuBar2);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(jdpprincipal)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 277, Short.MAX_VALUE)
+            .addComponent(jdpprincipal)
         );
 
-        pack();
+        setBounds(0, 0, 616, 397);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu1ActionPerformed
-        
-    }//GEN-LAST:event_jMenu1ActionPerformed
+    private void bmCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bmCadastroActionPerformed
+      
+       
+      
+    }//GEN-LAST:event_bmCadastroActionPerformed
+
+    private void miCadProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miCadProdutoActionPerformed
+        CadastroProduto obj = new CadastroProduto();
+        jdpprincipal.add(obj);
+        obj.setVisible(true);
+    }//GEN-LAST:event_miCadProdutoActionPerformed
+
+    private void miCadADMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miCadADMActionPerformed
+        CadastroADM obj = new CadastroADM();
+        jdpprincipal.add(obj);
+        obj.setVisible(true);
+    }//GEN-LAST:event_miCadADMActionPerformed
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+       setExtendedState(Tela.MAXIMIZED_BOTH);
+    }//GEN-LAST:event_formWindowOpened
 
     /**
      * @param args the command line arguments
@@ -99,8 +154,11 @@ public class Menu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenu bmCadastro;
+    private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenuBar jMenuBar2;
+    private javax.swing.JDesktopPane jdpprincipal;
+    private javax.swing.JMenuItem miCadADM;
+    private javax.swing.JMenuItem miCadProduto;
     // End of variables declaration//GEN-END:variables
 }

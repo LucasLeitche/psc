@@ -28,6 +28,11 @@ public class Tela extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -59,7 +64,7 @@ public class Tela extends javax.swing.JFrame {
 
         jLabel4.setForeground(new java.awt.Color(204, 204, 255));
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sistema/imagem/polotno (6).png"))); // NOI18N
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(-80, 0, 940, 480));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(-80, 0, 980, 580));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -69,17 +74,23 @@ public class Tela extends javax.swing.JFrame {
     }//GEN-LAST:event_txtSenhaActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-         if(txtLogin.getText().equals("usuario")&&txtSenha.getText().equals("1234")){ // sistema de autenticação //
+        if(txtLogin.getText().equals("usuario")&&txtSenha.getText().equals("1234")){ // sistema de autenticação //
         
              JOptionPane.showMessageDialog(null, "bem vindo");
-}else{ 
+            Menu TelaMenu = new Menu();     // botão de "ENTRAR" CONFIG //
+            TelaMenu.show(true);
+            TelaMenu.setVisible(true);
+        }
+        else{ 
  
              JOptionPane.showMessageDialog(null, "usuario ou senha incorretos");
-}
-        Menu TelaMenu = new Menu();     // botão de "ENTRAR" CONFIG //
-          TelaMenu.show(true);
-         TelaMenu.setVisible(true);
+        }
+      
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        setExtendedState(Tela.MAXIMIZED_BOTH);
+    }//GEN-LAST:event_formWindowOpened
 
     
     public static void main(String args[]) {
