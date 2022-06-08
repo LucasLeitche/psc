@@ -74,16 +74,18 @@ public class Tela extends javax.swing.JFrame {
     }//GEN-LAST:event_txtSenhaActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-         if(txtLogin.getText().equals("usuario")&&txtSenha.getText().equals("1234")){ // sistema de autenticação //
+        if(txtLogin.getText().equals("usuario")&&txtSenha.getText().equals("1234")){ // sistema de autenticação //
         
              JOptionPane.showMessageDialog(null, "bem vindo");
-}else{ 
+            Menu TelaMenu = new Menu();     // botão de "ENTRAR" CONFIG //
+            TelaMenu.show(true);
+            TelaMenu.setVisible(true);
+        }
+        else{ 
  
              JOptionPane.showMessageDialog(null, "usuario ou senha incorretos");
-}
-        Menu TelaMenu = new Menu();     // botão de "ENTRAR" CONFIG //
-          TelaMenu.show(true);
-         TelaMenu.setVisible(true);
+        }
+      
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
