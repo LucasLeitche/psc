@@ -29,12 +29,10 @@ public class Menu extends javax.swing.JFrame {
         jdpprincipal = new javax.swing.JDesktopPane();
         jMenuBar2 = new javax.swing.JMenuBar();
         bmCadastro = new javax.swing.JMenu();
-        miCadProduto = new javax.swing.JMenuItem();
         miCadADM = new javax.swing.JMenuItem();
         jMenuItem1 = new javax.swing.JMenuItem();
         mnConsulta = new javax.swing.JMenu();
-        mnConsultar = new javax.swing.JMenuItem();
-        mnconsultacliente = new javax.swing.JMenuItem();
+        mnconsultaAluno = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Menu");
@@ -52,7 +50,7 @@ public class Menu extends javax.swing.JFrame {
         );
         jdpprincipalLayout.setVerticalGroup(
             jdpprincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 366, Short.MAX_VALUE)
+            .addGap(0, 360, Short.MAX_VALUE)
         );
 
         bmCadastro.setText("Cadastro");
@@ -62,14 +60,6 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
-        miCadProduto.setText("Cadastro Produto");
-        miCadProduto.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                miCadProdutoActionPerformed(evt);
-            }
-        });
-        bmCadastro.add(miCadProduto);
-
         miCadADM.setText("Cadastro Usuário");
         miCadADM.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -78,7 +68,7 @@ public class Menu extends javax.swing.JFrame {
         });
         bmCadastro.add(miCadADM);
 
-        jMenuItem1.setText("Cadastro Cliente");
+        jMenuItem1.setText("Cadastro Aluno");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem1ActionPerformed(evt);
@@ -95,21 +85,13 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
-        mnConsultar.setText("Consultar Produto");
-        mnConsultar.addActionListener(new java.awt.event.ActionListener() {
+        mnconsultaAluno.setText("Consultar Aluno");
+        mnconsultaAluno.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mnConsultarActionPerformed(evt);
+                mnconsultaAlunoActionPerformed(evt);
             }
         });
-        mnConsulta.add(mnConsultar);
-
-        mnconsultacliente.setText("Consultar Cliente");
-        mnconsultacliente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mnconsultaclienteActionPerformed(evt);
-            }
-        });
-        mnConsulta.add(mnconsultacliente);
+        mnConsulta.add(mnconsultaAluno);
 
         jMenuBar2.add(mnConsulta);
 
@@ -123,7 +105,9 @@ public class Menu extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jdpprincipal)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jdpprincipal)
+                .addContainerGap())
         );
 
         setBounds(0, 0, 616, 397);
@@ -134,12 +118,6 @@ public class Menu extends javax.swing.JFrame {
        
       
     }//GEN-LAST:event_bmCadastroActionPerformed
-
-    private void miCadProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miCadProdutoActionPerformed
-        CadastroProduto obj = new CadastroProduto();
-        jdpprincipal.add(obj);
-        obj.setVisible(true);
-    }//GEN-LAST:event_miCadProdutoActionPerformed
 
     private void miCadADMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miCadADMActionPerformed
         CadastroUsuario obj = new CadastroUsuario();
@@ -152,7 +130,7 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowOpened
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        CadastroCliente obj = new CadastroCliente();
+        CadastroAluno obj = new CadastroAluno();
         jdpprincipal.add(obj);
         obj.setVisible(true);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
@@ -161,17 +139,11 @@ public class Menu extends javax.swing.JFrame {
        
     }//GEN-LAST:event_mnConsultaActionPerformed
 
-    private void mnConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnConsultarActionPerformed
-        Consulta obj = new Consulta ();
-       jdpprincipal.add(obj);
-       obj.setVisible(true);
-    }//GEN-LAST:event_mnConsultarActionPerformed
-
-    private void mnconsultaclienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnconsultaclienteActionPerformed
-        ConsultaCliente obj = new ConsultaCliente ();
+    private void mnconsultaAlunoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnconsultaAlunoActionPerformed
+        ConsultaAluno obj = new ConsultaAluno ();
         jdpprincipal.add(obj);
         obj.setVisible(true);
-    }//GEN-LAST:event_mnconsultaclienteActionPerformed
+    }//GEN-LAST:event_mnconsultaAlunoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -214,9 +186,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JDesktopPane jdpprincipal;
     private javax.swing.JMenuItem miCadADM;
-    private javax.swing.JMenuItem miCadProduto;
     private javax.swing.JMenu mnConsulta;
-    private javax.swing.JMenuItem mnConsultar;
-    private javax.swing.JMenuItem mnconsultacliente;
+    private javax.swing.JMenuItem mnconsultaAluno;
     // End of variables declaration//GEN-END:variables
 }

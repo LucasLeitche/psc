@@ -35,25 +35,29 @@ public class Tela extends javax.swing.JFrame {
                 formWindowOpened(evt);
             }
         });
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("USUARIO ");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 130, 69, -1));
-        getContentPane().add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 160, 155, -1));
+        jLabel1.setText("USUARIO :");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(440, 110, 80, 20);
+        getContentPane().add(txtUsuario);
+        txtUsuario.setBounds(440, 140, 155, 22);
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("SENHA ");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 190, 78, -1));
+        jLabel2.setText("SENHA :");
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(440, 190, 78, 20);
 
         txtSenha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtSenhaActionPerformed(evt);
             }
         });
-        getContentPane().add(txtSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 220, 155, -1));
+        getContentPane().add(txtSenha);
+        txtSenha.setBounds(440, 220, 155, 22);
 
         btnEntrar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnEntrar.setText("ENTRAR ");
@@ -62,15 +66,15 @@ public class Tela extends javax.swing.JFrame {
                 btnEntrarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnEntrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 290, 155, -1));
+        getContentPane().add(btnEntrar);
+        btnEntrar.setBounds(440, 300, 155, 22);
 
-        jLabel4.setForeground(new java.awt.Color(204, 204, 255));
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sistema/imagem/polotno (6).png"))); // NOI18N
-        jLabel4.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sistema/imagem/aluno3.png"))); // NOI18N
+        getContentPane().add(jLabel4);
+        jLabel4.setBounds(-350, 0, 1370, 980);
 
-        pack();
+        setSize(new java.awt.Dimension(1011, 607));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSenhaActionPerformed
@@ -79,8 +83,8 @@ public class Tela extends javax.swing.JFrame {
 
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
        String nome, senha;
-        
-        nome = txtUsuario.getText();
+       /*
+       nome = txtUsuario.getText();
         senha = txtSenha.getText();
         
         UsuarioDao dao = new UsuarioDao();
@@ -88,6 +92,7 @@ public class Tela extends javax.swing.JFrame {
         
         if(status == true){
             Usuario usuario = dao.consultar(nome, senha);
+            
             if(usuario == null){
                 JOptionPane.showMessageDialog(null, "usuario ou senha incorretos");
             } else{
@@ -96,13 +101,19 @@ public class Tela extends javax.swing.JFrame {
                 TelaMenu.show(true);
                 TelaMenu.setVisible(true);
                 
-            }
+            } 
         }
+       */ 
+        
       //dispose();
+      JOptionPane.showMessageDialog(null, "bem vindo");
+                Menu TelaMenu = new Menu();     // botão de "ENTRAR" CONFIG //
+                TelaMenu.show(true);
+                TelaMenu.setVisible(true);
     }//GEN-LAST:event_btnEntrarActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        setExtendedState(Tela.MAXIMIZED_BOTH);
+       
     }//GEN-LAST:event_formWindowOpened
 
     

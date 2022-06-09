@@ -8,12 +8,12 @@ package sistema;
  *
  * @author Emanuel
  */
-public class ConsultaCliente extends javax.swing.JInternalFrame {
+public class ConsultaAluno extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form ConsultaCliente
      */
-    public ConsultaCliente() {
+    public ConsultaAluno() {
         initComponents();
     }
 
@@ -38,20 +38,25 @@ public class ConsultaCliente extends javax.swing.JInternalFrame {
         setClosable(true);
         setIconifiable(true);
         setMaximizable(true);
-        setTitle("Consulta  Cliente");
+        setTitle("Consulta  Aluno");
 
-        jctitulo2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ID Cliente", "Nome Fantasia", "CPF/CNPJ" }));
+        jctitulo2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "RA", "Turma", "CPF" }));
+        jctitulo2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jctitulo2ActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("Consultar por:");
 
-        jLabel2.setText("Digite o argumento:");
+        jLabel2.setText("Digite aqui:");
 
         jtcliente.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "ID Cliente", "Nome Fantasia", "CPF/CNPJ", "Quantidade de Compras"
+                "RA", "Nome", "CPF", "Turma", "Idade", "Faltas"
             }
         ));
         jScrollPane1.setViewportView(jtcliente);
@@ -76,47 +81,49 @@ public class ConsultaCliente extends javax.swing.JInternalFrame {
                         .addComponent(jLabel1)
                         .addGap(51, 51, 51)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(6, 6, 6)
-                                .addComponent(txtconsultacliente, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel2)))
+                            .addComponent(txtconsultacliente, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jctitulo2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 564, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 601, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jbConsultar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jbSaircc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addGap(20, 20, 20))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jbConsultar)
+                            .addComponent(jbSaircc, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(35, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(11, Short.MAX_VALUE)
+                .addContainerGap(10, Short.MAX_VALUE)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(txtconsultacliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(19, 19, 19)
+                .addGap(22, 22, 22)
                 .addComponent(jctitulo2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jbConsultar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(120, 120, 120)
-                        .addComponent(jbSaircc, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(18, Short.MAX_VALUE))
+                        .addGap(114, 114, 114)
+                        .addComponent(jbSaircc, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
 
-        setBounds(600, 225, 728, 526);
+        setBounds(600, 225, 780, 526);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbSairccActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSairccActionPerformed
       this.setVisible(true);
       this.setVisible(false);
     }//GEN-LAST:event_jbSairccActionPerformed
+
+    private void jctitulo2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jctitulo2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jctitulo2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

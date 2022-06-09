@@ -26,9 +26,10 @@ public class UsuarioDao {
     public boolean conectar(){
         try{
             Class.forName("com.mysql.jdbc.Driver");
-            conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/psctrabalho", "root", "");
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/psctrabalho", "root", "");
             return true;
         } catch (ClassNotFoundException | SQLException ex){
+            JOptionPane.showMessageDialog(null, "Retorno" + ex);
             return false;   
     }
     }
@@ -63,10 +64,13 @@ public class UsuarioDao {
         
         try {
             String sql;
-            sql = "INSERT INTO usuario (nome, senha, cpf, tipo) VALUES('" + usu.getNome() + "' ,'" + usu.getSenha()+ "', '"+ usu.getCpf() + "', '" + usu.getTipo() + ")";
-            st.executeUpdate(sql);
+            sql = "insert into usuario (nome, senha, cpf, tipo) VALUES('" + usu.getNome() + "' ,'" + usu.getSenha()+ "', '"+ usu.getCpf() + "', '" + usu.getTipo() + "')";
+            
+            conn.createStatement().executeUpdate(sql);
+            JOptionPane.showMessageDialog(null, "Teste");
             return true;
         } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Retorno" + ex);
             return false;
         }
     }
