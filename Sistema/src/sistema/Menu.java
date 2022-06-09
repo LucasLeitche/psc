@@ -31,7 +31,10 @@ public class Menu extends javax.swing.JFrame {
         bmCadastro = new javax.swing.JMenu();
         miCadProduto = new javax.swing.JMenuItem();
         miCadADM = new javax.swing.JMenuItem();
-        jMenu4 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        mnConsulta = new javax.swing.JMenu();
+        mnConsultar = new javax.swing.JMenuItem();
+        mnconsultacliente = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Menu");
@@ -67,7 +70,7 @@ public class Menu extends javax.swing.JFrame {
         });
         bmCadastro.add(miCadProduto);
 
-        miCadADM.setText("CadastroADM");
+        miCadADM.setText("Cadastro Usuário");
         miCadADM.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 miCadADMActionPerformed(evt);
@@ -75,10 +78,40 @@ public class Menu extends javax.swing.JFrame {
         });
         bmCadastro.add(miCadADM);
 
+        jMenuItem1.setText("Cadastro Cliente");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        bmCadastro.add(jMenuItem1);
+
         jMenuBar2.add(bmCadastro);
 
-        jMenu4.setText("Edit");
-        jMenuBar2.add(jMenu4);
+        mnConsulta.setText("Consulta");
+        mnConsulta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnConsultaActionPerformed(evt);
+            }
+        });
+
+        mnConsultar.setText("Consultar Produto");
+        mnConsultar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnConsultarActionPerformed(evt);
+            }
+        });
+        mnConsulta.add(mnConsultar);
+
+        mnconsultacliente.setText("Consultar Cliente");
+        mnconsultacliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnconsultaclienteActionPerformed(evt);
+            }
+        });
+        mnConsulta.add(mnconsultacliente);
+
+        jMenuBar2.add(mnConsulta);
 
         setJMenuBar(jMenuBar2);
 
@@ -109,7 +142,7 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_miCadProdutoActionPerformed
 
     private void miCadADMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miCadADMActionPerformed
-        CadastroADM obj = new CadastroADM();
+        CadastroUsuario obj = new CadastroUsuario();
         jdpprincipal.add(obj);
         obj.setVisible(true);
     }//GEN-LAST:event_miCadADMActionPerformed
@@ -117,6 +150,28 @@ public class Menu extends javax.swing.JFrame {
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
        setExtendedState(Tela.MAXIMIZED_BOTH);
     }//GEN-LAST:event_formWindowOpened
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        CadastroCliente obj = new CadastroCliente();
+        jdpprincipal.add(obj);
+        obj.setVisible(true);
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void mnConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnConsultaActionPerformed
+       
+    }//GEN-LAST:event_mnConsultaActionPerformed
+
+    private void mnConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnConsultarActionPerformed
+        Consulta obj = new Consulta ();
+       jdpprincipal.add(obj);
+       obj.setVisible(true);
+    }//GEN-LAST:event_mnConsultarActionPerformed
+
+    private void mnconsultaclienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnconsultaclienteActionPerformed
+        ConsultaCliente obj = new ConsultaCliente ();
+        jdpprincipal.add(obj);
+        obj.setVisible(true);
+    }//GEN-LAST:event_mnconsultaclienteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -155,10 +210,13 @@ public class Menu extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu bmCadastro;
-    private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar2;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JDesktopPane jdpprincipal;
     private javax.swing.JMenuItem miCadADM;
     private javax.swing.JMenuItem miCadProduto;
+    private javax.swing.JMenu mnConsulta;
+    private javax.swing.JMenuItem mnConsultar;
+    private javax.swing.JMenuItem mnconsultacliente;
     // End of variables declaration//GEN-END:variables
 }

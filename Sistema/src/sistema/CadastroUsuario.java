@@ -8,23 +8,26 @@ package sistema;
  *
  * @author Emanuel
  */
-public class CadastroADM extends javax.swing.JInternalFrame {
+public class CadastroUsuario extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form CadastroADM
      */
-    public CadastroADM() {
+    public CadastroUsuario() {
         initComponents();
         this.CriarCampo(false);
     }
         public void CriarCampo(boolean flag){
          UsernameADM.setEnabled(flag);
          senhaADM.setEnabled(flag);
-         
+         cpfADM.setEnabled(flag);
+         idusuario.setEnabled(flag);
      }
      public void LimparCampo(){
          UsernameADM.setText("");
          senhaADM.setText("");
+         cpfADM.setText("");
+         idusuario.setText("");
          
      }
 
@@ -53,6 +56,9 @@ public class CadastroADM extends javax.swing.JInternalFrame {
         jLabel5 = new javax.swing.JLabel();
         rbADM = new javax.swing.JRadioButton();
         rbAtendente = new javax.swing.JRadioButton();
+        jbconsultar = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
+        idusuario = new javax.swing.JTextField();
 
         setClosable(true);
         setIconifiable(true);
@@ -114,75 +120,93 @@ public class CadastroADM extends javax.swing.JInternalFrame {
             }
         });
 
+        jbconsultar.setText("Consultar");
+
+        jLabel6.setText("ID Usuário:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(85, 85, 85)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jLabel1)
+                        .addGap(82, 82, 82))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(85, 85, 85)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(botaoNovo)
+                                    .addComponent(jLabel5))
+                                .addGap(64, 64, 64)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(botaoSalvar)
+                                        .addGap(43, 43, 43)
+                                        .addComponent(botaoCancelarADM)
+                                        .addGap(59, 59, 59)
+                                        .addComponent(botaoVoltarADM)
+                                        .addGap(34, 34, 34)
+                                        .addComponent(jbconsultar))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(rbADM)
+                                        .addGap(42, 42, 42)
+                                        .addComponent(rbAtendente))))
+                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
                             .addComponent(jLabel4)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(jLabel5))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(botaoNovo)
-                        .addGap(38, 38, 38)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(botaoSalvar)
-                        .addGap(27, 27, 27)
-                        .addComponent(botaoCancelarADM)
-                        .addGap(42, 42, 42)
-                        .addComponent(botaoVoltarADM))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(rbADM)
-                        .addGap(177, 177, 177)
-                        .addComponent(rbAtendente))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(UsernameADM, javax.swing.GroupLayout.DEFAULT_SIZE, 305, Short.MAX_VALUE)
-                        .addComponent(senhaADM)
-                        .addComponent(cpfADM)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING)))
-                .addContainerGap(57, Short.MAX_VALUE))
+                            .addComponent(jLabel6))
+                        .addGap(36, 36, 36)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(UsernameADM)
+                            .addComponent(cpfADM)
+                            .addComponent(senhaADM)
+                            .addComponent(idusuario))))
+                .addGap(185, 185, 185))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addGap(57, 57, 57)
+                .addGap(50, 50, 50)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(idusuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(UsernameADM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4)
-                    .addComponent(cpfADM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(29, 29, 29)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(senhaADM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
                 .addGap(23, 23, 23)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cpfADM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4))
+                .addGap(42, 42, 42)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(senhaADM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(38, 38, 38)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(rbADM)
                     .addComponent(rbAtendente))
-                .addGap(38, 38, 38)
+                .addGap(33, 33, 33)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(botaoNovo)
                     .addComponent(botaoSalvar)
                     .addComponent(botaoCancelarADM)
-                    .addComponent(botaoVoltarADM))
-                .addContainerGap(50, Short.MAX_VALUE))
+                    .addComponent(botaoVoltarADM)
+                    .addComponent(jbconsultar))
+                .addContainerGap(160, Short.MAX_VALUE))
         );
 
-        pack();
+        setBounds(600, 225, 888, 578);
     }// </editor-fold>//GEN-END:initComponents
 
     private void UsernameADMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UsernameADMActionPerformed
@@ -196,7 +220,9 @@ public class CadastroADM extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_botaoVoltarADMActionPerformed
 
     private void botaoSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoSalvarActionPerformed
-       
+       this.setVisible(true);
+        
+       this.setVisible(false);
     }//GEN-LAST:event_botaoSalvarActionPerformed
 
     private void botaoCancelarADMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCancelarADMActionPerformed
@@ -223,11 +249,14 @@ public class CadastroADM extends javax.swing.JInternalFrame {
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.JTextField cpfADM;
+    private javax.swing.JTextField idusuario;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JButton jbconsultar;
     private javax.swing.JRadioButton rbADM;
     private javax.swing.JRadioButton rbAtendente;
     private javax.swing.JTextField senhaADM;
