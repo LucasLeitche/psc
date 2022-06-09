@@ -86,7 +86,31 @@
                       </Group>
                   </Group>
               </Group>
+<<<<<<< HEAD:Sistema/build/classes/sistema/CadastroUsuario.form
               <EmptySpace min="-2" pref="185" max="-2" attributes="0"/>
+=======
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
+                      <Component id="botaoSalvar" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                      <Component id="botaoCancelarADM" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
+                      <Component id="botaoVoltarADM" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <Component id="rbADM" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="177" max="-2" attributes="0"/>
+                      <Component id="rbTp" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="103" alignment="1" groupAlignment="1" max="-2" attributes="0">
+                      <Component id="txtUserName" pref="305" max="32767" attributes="0"/>
+                      <Component id="txtSenha" alignment="1" max="32767" attributes="0"/>
+                      <Component id="txtCpf" alignment="1" max="32767" attributes="0"/>
+                      <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+              <EmptySpace pref="57" max="32767" attributes="0"/>
+>>>>>>> main:Sistema/build/classes/sistema/CadastroADM.form
           </Group>
       </Group>
     </DimensionLayout>
@@ -103,8 +127,21 @@
               <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="UsernameADM" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtUserName" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
+<<<<<<< HEAD:Sistema/build/classes/sistema/CadastroUsuario.form
+=======
+              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtCpf" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="txtSenha" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+>>>>>>> main:Sistema/build/classes/sistema/CadastroADM.form
               <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="cpfADM" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -119,7 +156,7 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="rbADM" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="rbAtendente" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="rbTp" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -153,12 +190,12 @@
         <Property name="text" type="java.lang.String" value="Senha:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="UsernameADM">
+    <Component class="javax.swing.JTextField" name="txtUserName">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="UsernameADMActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtUserNameActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="senhaADM">
+    <Component class="javax.swing.JTextField" name="txtSenha">
     </Component>
     <Component class="javax.swing.JButton" name="botaoNovo">
       <Properties>
@@ -197,7 +234,10 @@
         <Property name="text" type="java.lang.String" value="CPF:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="cpfADM">
+    <Component class="javax.swing.JTextField" name="txtCpf">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtCpfActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel5">
       <Properties>
@@ -212,7 +252,7 @@
         <Property name="text" type="java.lang.String" value="ADM"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JRadioButton" name="rbAtendente">
+    <Component class="javax.swing.JRadioButton" name="rbTp">
       <Properties>
         <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
           <ComponentRef name="buttonGroup1"/>
@@ -220,7 +260,7 @@
         <Property name="text" type="java.lang.String" value="Atendente"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rbAtendenteActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rbTpActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jbconsultar">

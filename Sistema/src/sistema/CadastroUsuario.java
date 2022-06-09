@@ -4,6 +4,10 @@
  */
 package sistema;
 
+import DAO.UsuarioDao;
+import DTO.Usuario;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Emanuel
@@ -45,20 +49,24 @@ public class CadastroUsuario extends javax.swing.JInternalFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        UsernameADM = new javax.swing.JTextField();
-        senhaADM = new javax.swing.JTextField();
+        txtUserName = new javax.swing.JTextField();
+        txtSenha = new javax.swing.JTextField();
         botaoNovo = new javax.swing.JButton();
         botaoSalvar = new javax.swing.JButton();
         botaoCancelarADM = new javax.swing.JButton();
         botaoVoltarADM = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
-        cpfADM = new javax.swing.JTextField();
+        txtCpf = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         rbADM = new javax.swing.JRadioButton();
+<<<<<<< HEAD:Sistema/src/sistema/CadastroUsuario.java
         rbAtendente = new javax.swing.JRadioButton();
         jbconsultar = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         idusuario = new javax.swing.JTextField();
+=======
+        rbTp = new javax.swing.JRadioButton();
+>>>>>>> main:Sistema/src/sistema/CadastroADM.java
 
         setClosable(true);
         setIconifiable(true);
@@ -71,9 +79,9 @@ public class CadastroUsuario extends javax.swing.JInternalFrame {
 
         jLabel3.setText("Senha:");
 
-        UsernameADM.addActionListener(new java.awt.event.ActionListener() {
+        txtUserName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                UsernameADMActionPerformed(evt);
+                txtUserNameActionPerformed(evt);
             }
         });
 
@@ -107,16 +115,22 @@ public class CadastroUsuario extends javax.swing.JInternalFrame {
 
         jLabel4.setText("CPF:");
 
+        txtCpf.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCpfActionPerformed(evt);
+            }
+        });
+
         jLabel5.setText("ADM ou Atendente:");
 
         buttonGroup1.add(rbADM);
         rbADM.setText("ADM");
 
-        buttonGroup1.add(rbAtendente);
-        rbAtendente.setText("Atendente");
-        rbAtendente.addActionListener(new java.awt.event.ActionListener() {
+        buttonGroup1.add(rbTp);
+        rbTp.setText("Atendente");
+        rbTp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rbAtendenteActionPerformed(evt);
+                rbTpActionPerformed(evt);
             }
         });
 
@@ -161,6 +175,7 @@ public class CadastroUsuario extends javax.swing.JInternalFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
                             .addComponent(jLabel4)
+<<<<<<< HEAD:Sistema/src/sistema/CadastroUsuario.java
                             .addComponent(jLabel6))
                         .addGap(36, 36, 36)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -169,6 +184,34 @@ public class CadastroUsuario extends javax.swing.JInternalFrame {
                             .addComponent(senhaADM)
                             .addComponent(idusuario))))
                 .addGap(185, 185, 185))
+=======
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jLabel5))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(botaoNovo)
+                        .addGap(38, 38, 38)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(botaoSalvar)
+                        .addGap(27, 27, 27)
+                        .addComponent(botaoCancelarADM)
+                        .addGap(42, 42, 42)
+                        .addComponent(botaoVoltarADM))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(rbADM)
+                        .addGap(177, 177, 177)
+                        .addComponent(rbTp))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(txtUserName, javax.swing.GroupLayout.DEFAULT_SIZE, 305, Short.MAX_VALUE)
+                        .addComponent(txtSenha)
+                        .addComponent(txtCpf)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING)))
+                .addContainerGap(57, Short.MAX_VALUE))
+>>>>>>> main:Sistema/src/sistema/CadastroADM.java
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -182,7 +225,19 @@ public class CadastroUsuario extends javax.swing.JInternalFrame {
                 .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
+<<<<<<< HEAD:Sistema/src/sistema/CadastroUsuario.java
                     .addComponent(UsernameADM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+=======
+                    .addComponent(txtUserName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4)
+                    .addComponent(txtCpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(29, 29, 29)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
+>>>>>>> main:Sistema/src/sistema/CadastroADM.java
                 .addGap(23, 23, 23)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cpfADM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -195,8 +250,13 @@ public class CadastroUsuario extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(rbADM)
+<<<<<<< HEAD:Sistema/src/sistema/CadastroUsuario.java
                     .addComponent(rbAtendente))
                 .addGap(33, 33, 33)
+=======
+                    .addComponent(rbTp))
+                .addGap(38, 38, 38)
+>>>>>>> main:Sistema/src/sistema/CadastroADM.java
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(botaoNovo)
                     .addComponent(botaoSalvar)
@@ -209,9 +269,9 @@ public class CadastroUsuario extends javax.swing.JInternalFrame {
         setBounds(600, 225, 888, 578);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void UsernameADMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UsernameADMActionPerformed
+    private void txtUserNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUserNameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_UsernameADMActionPerformed
+    }//GEN-LAST:event_txtUserNameActionPerformed
 
     private void botaoVoltarADMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoVoltarADMActionPerformed
        this.setVisible(true);
@@ -220,9 +280,35 @@ public class CadastroUsuario extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_botaoVoltarADMActionPerformed
 
     private void botaoSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoSalvarActionPerformed
+<<<<<<< HEAD:Sistema/src/sistema/CadastroUsuario.java
        this.setVisible(true);
         
        this.setVisible(false);
+=======
+        UsuarioDao dao;
+        boolean status;
+        Usuario usuario = new Usuario();
+        usuario.setNome(txtUserName.getText());
+        usuario.setCpf(txtCpf.getText());
+        usuario.setNome(rbTp.getText());    
+        usuario.setNome(txtUserName.getText());
+        
+        dao = new UsuarioDao();
+        status = dao.conectar();
+        
+        if(status == false){
+            JOptionPane.showMessageDialog(null, "Erro na conexão com o banco de dados");
+        }
+        else{
+            status = dao.salvar(usuario);
+            if(status == false){
+                JOptionPane.showMessageDialog(null, "Erro ao tentar incluir o usuário");
+            } else{
+                JOptionPane.showMessageDialog(null, "Dados concluidos com sucesso");
+            }
+        }
+        
+>>>>>>> main:Sistema/src/sistema/CadastroADM.java
     }//GEN-LAST:event_botaoSalvarActionPerformed
 
     private void botaoCancelarADMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCancelarADMActionPerformed
@@ -235,21 +321,27 @@ public class CadastroUsuario extends javax.swing.JInternalFrame {
         this.LimparCampo();
     }//GEN-LAST:event_botaoNovoActionPerformed
 
-    private void rbAtendenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbAtendenteActionPerformed
+    private void rbTpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbTpActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_rbAtendenteActionPerformed
+    }//GEN-LAST:event_rbTpActionPerformed
+
+    private void txtCpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCpfActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCpfActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField UsernameADM;
     private javax.swing.JButton botaoCancelarADM;
     private javax.swing.JButton botaoNovo;
     private javax.swing.JButton botaoSalvar;
     private javax.swing.JButton botaoVoltarADM;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
+<<<<<<< HEAD:Sistema/src/sistema/CadastroUsuario.java
     private javax.swing.JTextField cpfADM;
     private javax.swing.JTextField idusuario;
+=======
+>>>>>>> main:Sistema/src/sistema/CadastroADM.java
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -258,7 +350,9 @@ public class CadastroUsuario extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JButton jbconsultar;
     private javax.swing.JRadioButton rbADM;
-    private javax.swing.JRadioButton rbAtendente;
-    private javax.swing.JTextField senhaADM;
+    private javax.swing.JRadioButton rbTp;
+    private javax.swing.JTextField txtCpf;
+    private javax.swing.JTextField txtSenha;
+    private javax.swing.JTextField txtUserName;
     // End of variables declaration//GEN-END:variables
 }
