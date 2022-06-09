@@ -83,7 +83,7 @@ public class Tela extends javax.swing.JFrame {
 
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
        String nome, senha;
-       /*
+       
        nome = txtUsuario.getText();
         senha = txtSenha.getText();
         
@@ -100,16 +100,16 @@ public class Tela extends javax.swing.JFrame {
                 Menu TelaMenu = new Menu();     // botão de "ENTRAR" CONFIG //
                 TelaMenu.show(true);
                 TelaMenu.setVisible(true);
+                dispose();
                 
             } 
         }
-       */ 
         
-      //dispose();
-      JOptionPane.showMessageDialog(null, "bem vindo");
-                Menu TelaMenu = new Menu();     // botão de "ENTRAR" CONFIG //
-                TelaMenu.show(true);
-                TelaMenu.setVisible(true);
+      
+//      JOptionPane.showMessageDialog(null, "bem vindo");
+//                Menu TelaMenu = new Menu();     // botão de "ENTRAR" CONFIG //
+//                TelaMenu.show(true);
+//                TelaMenu.setVisible(true);
     }//GEN-LAST:event_btnEntrarActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened

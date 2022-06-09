@@ -4,6 +4,10 @@
  */
 package sistema;
 
+import DAO.UsuarioDao;
+import DTO.Usuario;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Thiago
@@ -29,7 +33,7 @@ public class Menu extends javax.swing.JFrame {
         jdpprincipal = new javax.swing.JDesktopPane();
         jMenuBar2 = new javax.swing.JMenuBar();
         bmCadastro = new javax.swing.JMenu();
-        miCadADM = new javax.swing.JMenuItem();
+        miUsu = new javax.swing.JMenuItem();
         jMenuItem1 = new javax.swing.JMenuItem();
         mnConsulta = new javax.swing.JMenu();
         mnconsultaAluno = new javax.swing.JMenuItem();
@@ -60,13 +64,13 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
-        miCadADM.setText("Cadastro Usuário");
-        miCadADM.addActionListener(new java.awt.event.ActionListener() {
+        miUsu.setText("Cadastro Usuário");
+        miUsu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                miCadADMActionPerformed(evt);
+                miUsuActionPerformed(evt);
             }
         });
-        bmCadastro.add(miCadADM);
+        bmCadastro.add(miUsu);
 
         jMenuItem1.setText("Cadastro Aluno");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
@@ -119,16 +123,29 @@ public class Menu extends javax.swing.JFrame {
       
     }//GEN-LAST:event_bmCadastroActionPerformed
 
-    private void miCadADMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miCadADMActionPerformed
+    private void miUsuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miUsuActionPerformed
         CadastroUsuario obj = new CadastroUsuario();
         jdpprincipal.add(obj);
         obj.setVisible(true);
-    }//GEN-LAST:event_miCadADMActionPerformed
+    }//GEN-LAST:event_miUsuActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-       setExtendedState(Tela.MAXIMIZED_BOTH);
+ 
+        UsuarioDao dao = new UsuarioDao();
+        boolean status = dao.conectar();
+        
+        if(status == true){
+            Usuario usuario = dao.consultarTipo();
+            
+            if(usuario.getTipo() == "AD"){
+                miUsu.setEnabled(true);
+            } else{
+                miUsu.setEnabled(false);
+            }
+        
     }//GEN-LAST:event_formWindowOpened
-
+    setExtendedState(Tela.MAXIMIZED_BOTH);
+    }
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         CadastroAluno obj = new CadastroAluno();
         jdpprincipal.add(obj);
@@ -185,7 +202,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JDesktopPane jdpprincipal;
-    private javax.swing.JMenuItem miCadADM;
+    private javax.swing.JMenuItem miUsu;
     private javax.swing.JMenu mnConsulta;
     private javax.swing.JMenuItem mnconsultaAluno;
     // End of variables declaration//GEN-END:variables

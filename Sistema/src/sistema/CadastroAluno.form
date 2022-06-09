@@ -69,10 +69,10 @@
                                   </Group>
                               </Group>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="cpftxt" max="32767" attributes="0"/>
+                                  <Component id="txtCpf" max="32767" attributes="0"/>
                                   <Component id="jLabel2" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="iD" pref="459" max="32767" attributes="0"/>
-                                  <Component id="nftxt" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="txtRa" pref="459" max="32767" attributes="0"/>
+                                  <Component id="txtName" alignment="1" max="32767" attributes="0"/>
                                   <Component id="txtIdade" alignment="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
@@ -100,19 +100,19 @@
               <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="iD" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtRa" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="nf" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="nftxt" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtName" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
               <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="CPFcnpj" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="cpftxt" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtCpf" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -150,12 +150,12 @@
         <Property name="text" type="java.lang.String" value="CPF:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="nftxt">
+    <Component class="javax.swing.JTextField" name="txtName">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="nftxtActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtNameActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="cpftxt">
+    <Component class="javax.swing.JTextField" name="txtCpf">
     </Component>
     <Component class="javax.swing.JButton" name="JBsalvar">
       <Properties>
@@ -202,7 +202,10 @@
         <Property name="text" type="java.lang.String" value="RA:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="iD">
+    <Component class="javax.swing.JTextField" name="txtRa">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtRaActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="JBconsulta">
       <Properties>

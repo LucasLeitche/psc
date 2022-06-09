@@ -33,6 +33,44 @@ public class UsuarioDao {
             return false;   
     }
     }
+    private boolean conectarUsuario (String nome, String senha){
+        try {
+            String sql;
+            sql = "update usuario set conect = 0";
+            conn.createStatement().executeUpdate(sql);
+            sql = "update usuario set conect = 1 where nome ='" + nome + "' and senha = '" + senha +"'";
+            
+            conn.createStatement().executeUpdate(sql);
+            return true;
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Retorno" + ex);
+            return false;
+        }
+    }
+    public Usuario consultarTipo (){
+        try {
+            Usuario usuario;
+            usuario = new Usuario();
+            
+            st = conn.prepareStatement("select * from usuario where conect = 1");
+            
+            ResultSet rs = st.executeQuery();
+            
+            if(rs.next()){
+                usuario.setNome(rs.getString("nome"));              
+                usuario.setTipo(rs.getString("tipo"));
+                
+                return usuario;
+            } else{
+                return null;
+                
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Retorno" + ex);
+            return null;
+  
+        }
+    }
     public Usuario consultar (String nome, String senha){
         try {
             Usuario usuario;
@@ -48,7 +86,7 @@ public class UsuarioDao {
                 usuario.setNome(rs.getString("nome"));
                 usuario.setSenha(rs.getString("senha"));                
                 usuario.setTipo(rs.getString("tipo"));
-
+                conectarUsuario(rs.getString("nome"), rs.getString("senha"));
                 return usuario;
             } else{
                 return null;
@@ -67,7 +105,6 @@ public class UsuarioDao {
             sql = "insert into usuario (nome, senha, cpf, tipo) VALUES('" + usu.getNome() + "' ,'" + usu.getSenha()+ "', '"+ usu.getCpf() + "', '" + usu.getTipo() + "')";
             
             conn.createStatement().executeUpdate(sql);
-            JOptionPane.showMessageDialog(null, "Teste");
             return true;
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Retorno" + ex);

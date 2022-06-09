@@ -4,6 +4,12 @@
  */
 package sistema;
 
+import DAO.AlunoDao;
+import DAO.UsuarioDao;
+import DTO.Aluno;
+import DTO.Usuario;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Emanuel
@@ -18,17 +24,17 @@ public class CadastroAluno extends javax.swing.JInternalFrame {
         this.CriarCampo(false);
     }
          public void CriarCampo(boolean flag){
-         iD.setEnabled(flag);
-         nftxt.setEnabled(flag);
-         cpftxt.setEnabled(flag);
+         txtRa.setEnabled(flag);
+         txtName.setEnabled(flag);
+         txtCpf.setEnabled(flag);
          txtIdade.setEnabled(flag);
          txtTurma.setEnabled(flag);
          
      }
      public void LimparCampo(){
-         iD.setText("");
-         nftxt.setText("");
-         cpftxt.setText("");
+         txtRa.setText("");
+         txtName.setText("");
+         txtCpf.setText("");
          txtIdade.setText("");
          txtTurma.setText("");
          
@@ -48,15 +54,15 @@ public class CadastroAluno extends javax.swing.JInternalFrame {
         nf = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         CPFcnpj = new javax.swing.JLabel();
-        nftxt = new javax.swing.JTextField();
-        cpftxt = new javax.swing.JTextField();
+        txtName = new javax.swing.JTextField();
+        txtCpf = new javax.swing.JTextField();
         JBsalvar = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         JBnovo = new javax.swing.JButton();
         JBcancelar = new javax.swing.JButton();
         JBvoltar = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
-        iD = new javax.swing.JTextField();
+        txtRa = new javax.swing.JTextField();
         JBconsulta = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         txtIdade = new javax.swing.JTextField();
@@ -72,9 +78,9 @@ public class CadastroAluno extends javax.swing.JInternalFrame {
 
         CPFcnpj.setText("CPF:");
 
-        nftxt.addActionListener(new java.awt.event.ActionListener() {
+        txtName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nftxtActionPerformed(evt);
+                txtNameActionPerformed(evt);
             }
         });
 
@@ -110,6 +116,12 @@ public class CadastroAluno extends javax.swing.JInternalFrame {
         });
 
         jLabel4.setText("RA:");
+
+        txtRa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtRaActionPerformed(evt);
+            }
+        });
 
         JBconsulta.setText("Consultar");
 
@@ -151,10 +163,10 @@ public class CadastroAluno extends javax.swing.JInternalFrame {
                                         .addComponent(CPFcnpj)
                                         .addGap(18, 18, 18)))
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(cpftxt)
+                                    .addComponent(txtCpf)
                                     .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(iD, javax.swing.GroupLayout.DEFAULT_SIZE, 459, Short.MAX_VALUE)
-                                    .addComponent(nftxt, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(txtRa, javax.swing.GroupLayout.DEFAULT_SIZE, 459, Short.MAX_VALUE)
+                                    .addComponent(txtName, javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(txtIdade)))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel6)
@@ -173,17 +185,17 @@ public class CadastroAluno extends javax.swing.JInternalFrame {
                 .addGap(48, 48, 48)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(iD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtRa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(nf)
-                    .addComponent(nftxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(27, 27, 27)
                 .addComponent(jLabel2)
                 .addGap(0, 0, 0)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(CPFcnpj)
-                    .addComponent(cpftxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtCpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(24, 24, 24)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
@@ -205,14 +217,43 @@ public class CadastroAluno extends javax.swing.JInternalFrame {
         setBounds(600, 225, 707, 467);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void nftxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nftxtActionPerformed
+    private void txtNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_nftxtActionPerformed
+    }//GEN-LAST:event_txtNameActionPerformed
 
     private void JBsalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBsalvarActionPerformed
-         this.setVisible(true);
+         
         
-         this.setVisible(false);
+       Aluno aluno;
+       AlunoDao dao;
+       boolean status;
+       aluno = new Aluno();
+       aluno.setNome(txtName.getText());
+       aluno.setCpf(txtCpf.getText());
+       aluno.setRa(Integer.parseInt(txtRa.getText()));
+       
+       
+       
+       dao = new AlunoDao();
+       
+       status = dao.conectar();
+       
+       if(status == false){
+           JOptionPane.showMessageDialog(null, "Erro na conexão com o banco de dados");
+       } else{
+           status = dao.salvar(aluno);
+           JOptionPane.showMessageDialog(null, "Entrou");
+           if(status == false){
+               JOptionPane.showMessageDialog(null, "Erro ao Tentar Incluir Dados");
+           } else{
+               JOptionPane.showMessageDialog(null, "Dados incluidos com sucesso");
+           }
+           
+       }
+       
+       this.setVisible(true);
+        
+       this.setVisible(false);
     }//GEN-LAST:event_JBsalvarActionPerformed
 
     private void JBnovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBnovoActionPerformed
@@ -231,6 +272,10 @@ public class CadastroAluno extends javax.swing.JInternalFrame {
         this.setVisible(false);
     }//GEN-LAST:event_JBvoltarActionPerformed
 
+    private void txtRaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtRaActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel CPFcnpj;
@@ -240,16 +285,16 @@ public class CadastroAluno extends javax.swing.JInternalFrame {
     private javax.swing.JButton JBsalvar;
     private javax.swing.JButton JBvoltar;
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JTextField cpftxt;
-    private javax.swing.JTextField iD;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel nf;
-    private javax.swing.JTextField nftxt;
+    private javax.swing.JTextField txtCpf;
     private javax.swing.JTextField txtIdade;
+    private javax.swing.JTextField txtName;
+    private javax.swing.JTextField txtRa;
     private javax.swing.JTextField txtTurma;
     // End of variables declaration//GEN-END:variables
 }
