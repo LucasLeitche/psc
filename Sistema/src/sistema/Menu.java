@@ -136,11 +136,13 @@ public class Menu extends javax.swing.JFrame {
         
         if(status == true){
             Usuario usuario = dao.consultarTipo();
-            
-            if(usuario.getTipo() == "AD"){
+            int number = Integer.parseInt(usuario.getTipo());
+            if(number == 1 ){
                 miUsu.setEnabled(true);
+                
             } else{
                 miUsu.setEnabled(false);
+  
             }
         
     }//GEN-LAST:event_formWindowOpened

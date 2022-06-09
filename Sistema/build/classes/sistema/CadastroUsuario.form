@@ -57,8 +57,6 @@
                                       <Component id="botaoCancelarADM" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
                                       <Component id="botaoVoltarADM" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
-                                      <Component id="jbconsultar" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="rbADM" min="-2" max="-2" attributes="0"/>
@@ -69,7 +67,7 @@
                           </Group>
                           <Component id="jLabel3" alignment="0" min="-2" pref="56" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="115" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -127,7 +125,6 @@
                   <Component id="botaoSalvar" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="botaoCancelarADM" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="botaoVoltarADM" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jbconsultar" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="160" max="32767" attributes="0"/>
           </Group>
@@ -225,11 +222,6 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rbAtendenteActionPerformed"/>
       </Events>
-    </Component>
-    <Component class="javax.swing.JButton" name="jbconsultar">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Consultar"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel6">
       <Properties>

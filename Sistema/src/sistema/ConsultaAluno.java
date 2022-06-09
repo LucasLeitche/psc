@@ -4,17 +4,70 @@
  */
 package sistema;
 
+import DAO.AlunoDao;
+import DTO.Aluno;
+import java.awt.List;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Emanuel
  */
 public class ConsultaAluno extends javax.swing.JInternalFrame {
+    private void preenchaTabela(String sql){
+        
+         try
+        {
+         Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/psctrabalho", "root", "");
+         PreparedStatement st = conn.prepareStatement(sql);
+         st.execute(); // cria o vetor
 
+         ResultSet rs = st.executeQuery();
+
+         DefaultTableModel model =(DefaultTableModel) tblAlunos.getModel();
+         
+         model.setNumRows(0);
+
+         while(rs.next())
+         {
+             model.addRow(new Object[] 
+             { 
+                //retorna os dados da tabela do BD, cada campo e um coluna.
+                rs.getInt("ra"),
+                rs.getString("nome"),
+                rs.getString("cpf"),
+                rs.getString("turma"),
+                rs.getString("idade"),
+                rs.getString("faltas"),
+             }); 
+        } 
+         rs.close();
+         rs.close();
+        }
+       catch (SQLException ex)
+       {
+          System.out.println("o erro foi " +ex);
+        }
+        
+        
+        
+        
+        
+        
+        
+    }
     /**
      * Creates new form ConsultaCliente
      */
     public ConsultaAluno() {
         initComponents();
+        
     }
 
     /**
@@ -26,32 +79,17 @@ public class ConsultaAluno extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jctitulo2 = new javax.swing.JComboBox<>();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jtcliente = new javax.swing.JTable();
+        tblAlunos = new javax.swing.JTable();
         jbConsultar = new javax.swing.JButton();
         jbSaircc = new javax.swing.JButton();
-        txtconsultacliente = new javax.swing.JTextField();
 
         setClosable(true);
         setIconifiable(true);
         setMaximizable(true);
         setTitle("Consulta  Aluno");
 
-        jctitulo2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "RA", "Turma", "CPF" }));
-        jctitulo2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jctitulo2ActionPerformed(evt);
-            }
-        });
-
-        jLabel1.setText("Consultar por:");
-
-        jLabel2.setText("Digite aqui:");
-
-        jtcliente.setModel(new javax.swing.table.DefaultTableModel(
+        tblAlunos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -59,9 +97,14 @@ public class ConsultaAluno extends javax.swing.JInternalFrame {
                 "RA", "Nome", "CPF", "Turma", "Idade", "Faltas"
             }
         ));
-        jScrollPane1.setViewportView(jtcliente);
+        jScrollPane1.setViewportView(tblAlunos);
 
         jbConsultar.setText("Consultar");
+        jbConsultar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbConsultarActionPerformed(evt);
+            }
+        });
 
         jbSaircc.setText("Sair");
         jbSaircc.addActionListener(new java.awt.event.ActionListener() {
@@ -76,41 +119,24 @@ public class ConsultaAluno extends javax.swing.JInternalFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(33, 33, 33)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 601, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(51, 51, 51)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtconsultacliente, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jctitulo2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 601, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jbConsultar)
-                            .addComponent(jbSaircc, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addComponent(jbConsultar)
+                    .addComponent(jbSaircc, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(35, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(10, Short.MAX_VALUE)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(txtconsultacliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(22, 22, 22)
-                .addComponent(jctitulo2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addContainerGap(103, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jbConsultar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(114, 114, 114)
                         .addComponent(jbSaircc, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(16, Short.MAX_VALUE))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
 
         setBounds(600, 225, 780, 526);
@@ -121,19 +147,15 @@ public class ConsultaAluno extends javax.swing.JInternalFrame {
       this.setVisible(false);
     }//GEN-LAST:event_jbSairccActionPerformed
 
-    private void jctitulo2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jctitulo2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jctitulo2ActionPerformed
+    private void jbConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbConsultarActionPerformed
+        preenchaTabela("select * from aluno");
+    }//GEN-LAST:event_jbConsultarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton jbConsultar;
     private javax.swing.JButton jbSaircc;
-    private javax.swing.JComboBox<String> jctitulo2;
-    private javax.swing.JTable jtcliente;
-    private javax.swing.JTextField txtconsultacliente;
+    private javax.swing.JTable tblAlunos;
     // End of variables declaration//GEN-END:variables
 }

@@ -63,7 +63,6 @@ public class CadastroAluno extends javax.swing.JInternalFrame {
         JBvoltar = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         txtRa = new javax.swing.JTextField();
-        JBconsulta = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         txtIdade = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
@@ -123,8 +122,6 @@ public class CadastroAluno extends javax.swing.JInternalFrame {
             }
         });
 
-        JBconsulta.setText("Consultar");
-
         jLabel5.setText("Idade:");
 
         jLabel6.setText("Turma:");
@@ -150,8 +147,7 @@ public class CadastroAluno extends javax.swing.JInternalFrame {
                                 .addComponent(JBcancelar)
                                 .addGap(18, 18, 18)
                                 .addComponent(JBvoltar)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(JBconsulta))
+                                .addGap(93, 93, 93))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -209,8 +205,7 @@ public class CadastroAluno extends javax.swing.JInternalFrame {
                     .addComponent(JBsalvar)
                     .addComponent(JBnovo)
                     .addComponent(JBvoltar)
-                    .addComponent(JBcancelar)
-                    .addComponent(JBconsulta))
+                    .addComponent(JBcancelar))
                 .addGap(54, 54, 54))
         );
 
@@ -231,6 +226,9 @@ public class CadastroAluno extends javax.swing.JInternalFrame {
        aluno.setNome(txtName.getText());
        aluno.setCpf(txtCpf.getText());
        aluno.setRa(Integer.parseInt(txtRa.getText()));
+       aluno.setTurma(Integer.parseInt(txtTurma.getText()));
+       aluno.setIdade(Integer.parseInt(txtIdade.getText()));
+
        
        
        
@@ -242,7 +240,6 @@ public class CadastroAluno extends javax.swing.JInternalFrame {
            JOptionPane.showMessageDialog(null, "Erro na conexão com o banco de dados");
        } else{
            status = dao.salvar(aluno);
-           JOptionPane.showMessageDialog(null, "Entrou");
            if(status == false){
                JOptionPane.showMessageDialog(null, "Erro ao Tentar Incluir Dados");
            } else{
@@ -280,7 +277,6 @@ public class CadastroAluno extends javax.swing.JInternalFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel CPFcnpj;
     private javax.swing.JButton JBcancelar;
-    private javax.swing.JButton JBconsulta;
     private javax.swing.JButton JBnovo;
     private javax.swing.JButton JBsalvar;
     private javax.swing.JButton JBvoltar;

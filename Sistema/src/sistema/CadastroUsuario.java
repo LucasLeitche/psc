@@ -60,7 +60,6 @@ public class CadastroUsuario extends javax.swing.JInternalFrame {
         jLabel5 = new javax.swing.JLabel();
         rbADM = new javax.swing.JRadioButton();
         rbAtendente = new javax.swing.JRadioButton();
-        jbconsultar = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         txtId = new javax.swing.JTextField();
 
@@ -130,8 +129,6 @@ public class CadastroUsuario extends javax.swing.JInternalFrame {
             }
         });
 
-        jbconsultar.setText("Consultar");
-
         jLabel6.setText("ID Usuário:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -158,15 +155,13 @@ public class CadastroUsuario extends javax.swing.JInternalFrame {
                                         .addGap(43, 43, 43)
                                         .addComponent(botaoCancelarADM)
                                         .addGap(59, 59, 59)
-                                        .addComponent(botaoVoltarADM)
-                                        .addGap(34, 34, 34)
-                                        .addComponent(jbconsultar))
+                                        .addComponent(botaoVoltarADM))
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(rbADM)
                                         .addGap(42, 42, 42)
                                         .addComponent(rbAtendente))))
                             .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addGap(0, 115, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
@@ -211,8 +206,7 @@ public class CadastroUsuario extends javax.swing.JInternalFrame {
                     .addComponent(botaoNovo)
                     .addComponent(botaoSalvar)
                     .addComponent(botaoCancelarADM)
-                    .addComponent(botaoVoltarADM)
-                    .addComponent(jbconsultar))
+                    .addComponent(botaoVoltarADM))
                 .addContainerGap(160, Short.MAX_VALUE))
         );
 
@@ -239,9 +233,9 @@ public class CadastroUsuario extends javax.swing.JInternalFrame {
        usuario.setSenha(txtSenha.getText());
        
        if(rbADM.isSelected()){
-           usuario.setTipo("AD");
+           usuario.setTipo("1");
        } else{
-           usuario.setTipo("AT");
+           usuario.setTipo("0");
        }
        
        dao = new UsuarioDao();
@@ -252,7 +246,6 @@ public class CadastroUsuario extends javax.swing.JInternalFrame {
            JOptionPane.showMessageDialog(null, "Erro na conexão com o banco de dados");
        } else{
            status = dao.salvar(usuario);
-           JOptionPane.showMessageDialog(null, "Entrou");
            if(status == false){
                JOptionPane.showMessageDialog(null, "Erro ao Tentar Incluir Dados");
            } else{
@@ -294,7 +287,6 @@ public class CadastroUsuario extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JButton jbconsultar;
     private javax.swing.JRadioButton rbADM;
     private javax.swing.JRadioButton rbAtendente;
     private javax.swing.JTextField txtCpf;

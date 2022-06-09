@@ -6,14 +6,17 @@ package DAO;
 
 import DTO.Aluno;
 import DTO.Usuario;
+import java.awt.List;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+
 
 
 public class AlunoDao {
@@ -34,7 +37,30 @@ public class AlunoDao {
             return false;   
     }
     }
-    
+    public ArrayList consultarAluno(){
+        try {
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/psctrabalho", "root", "");
+            st = conn.prepareStatement("select * from aluno");
+            
+            ResultSet rs = st.executeQuery();
+            
+            ArrayList<Aluno> listaAlunos = new ArrayList<>();
+            
+            while(rs.next()){
+                Aluno aluno= new Aluno();
+                aluno.setNome(rs.getString("nome"));
+                aluno.setCpf("cpf");
+                aluno.setRa(rs.getInt("ra"));
+                aluno.setTurma(rs.getInt("turma"));
+                aluno.setIdade(rs.getInt("idade"));                
+                aluno.setFaltas(rs.getInt("faltas"));
+
+            }
+            return listaAlunos;
+        } catch (SQLException ex) {
+            return null;
+        }
+    }
     public Aluno consultar (){
         try {
             Aluno aluno;

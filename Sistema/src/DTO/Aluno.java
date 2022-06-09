@@ -14,7 +14,14 @@ public class Aluno {
     private int idade;
     private String cpf; 
     private int turma;
+    private int faltas;
     
+    public int getFaltas(){
+        return faltas;
+    }
+    public void setFaltas(int faltas){
+        this.faltas = faltas;
+    }
     public int getRa() {
         return ra;
     }
