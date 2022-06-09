@@ -1,6 +1,8 @@
 
 package sistema;
 
+import DAO.UsuarioDao;
+import DTO.Usuario;
 import javax.swing.JOptionPane;
 
 
@@ -21,10 +23,10 @@ public class Tela extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        txtLogin = new javax.swing.JTextField();
+        txtUsuario = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         txtSenha = new javax.swing.JPasswordField();
-        jButton1 = new javax.swing.JButton();
+        btnEntrar = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -39,7 +41,7 @@ public class Tela extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("USUARIO ");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 130, 69, -1));
-        getContentPane().add(txtLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 160, 155, -1));
+        getContentPane().add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 160, 155, -1));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -53,14 +55,14 @@ public class Tela extends javax.swing.JFrame {
         });
         getContentPane().add(txtSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 220, 155, -1));
 
-        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jButton1.setText("ENTRAR ");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnEntrar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnEntrar.setText("ENTRAR ");
+        btnEntrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnEntrarActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 290, 155, -1));
+        getContentPane().add(btnEntrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 290, 155, -1));
 
         jLabel4.setForeground(new java.awt.Color(204, 204, 255));
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sistema/imagem/polotno (6).png"))); // NOI18N
@@ -73,20 +75,39 @@ public class Tela extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtSenhaActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        if(txtLogin.getText().equals("usuario")&&txtSenha.getText().equals("1234")){ // sistema de autenticação //
+    private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
         
-             JOptionPane.showMessageDialog(null, "bem vindo");
-            Menu TelaMenu = new Menu();     // botão de "ENTRAR" CONFIG //
-            TelaMenu.show(true);
-            TelaMenu.setVisible(true);
+        String nome, senha;
+        
+        nome = txtUsuario.getText();
+        senha = txtSenha.getText();
+        
+        UsuarioDao dao = new UsuarioDao();
+        boolean status = dao.conectar();
+        
+        if(status == true){
+            Usuario usuario = dao.consultar(nome, senha);
+            if(usuario == null){
+                JOptionPane.showMessageDialog(null, "usuario ou senha incorretos");
+            } else{
+                JOptionPane.showMessageDialog(null, "bem vindo");
+                Menu TelaMenu = new Menu();     // botão de "ENTRAR" CONFIG //
+                TelaMenu.show(true);
+                TelaMenu.setVisible(true);
+                
+            }
         }
-        else{ 
- 
-             JOptionPane.showMessageDialog(null, "usuario ou senha incorretos");
-        }
+        
+//        if(txtUsuario.getText().equals("usuario")&&txtSenha.getText().equals("1234")){ // sistema de autenticação //
+//        
+//            
+//        }
+//        else{ 
+// 
+//             JOptionPane.showMessageDialog(null, "usuario ou senha incorretos");
+//        }
       
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnEntrarActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         setExtendedState(Tela.MAXIMIZED_BOTH);
@@ -122,11 +143,11 @@ public class Tela extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnEntrar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JTextField txtLogin;
     private javax.swing.JPasswordField txtSenha;
+    private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
 }
