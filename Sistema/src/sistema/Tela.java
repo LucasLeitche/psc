@@ -65,8 +65,10 @@ public class Tela extends javax.swing.JFrame {
         getContentPane().add(btnEntrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 290, 155, -1));
 
         jLabel4.setForeground(new java.awt.Color(204, 204, 255));
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/sistema/imagem/polotno (6).png"))); // NOI18N
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(-80, 0, 980, 580));
+        jLabel4.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -97,17 +99,8 @@ public class Tela extends javax.swing.JFrame {
                 
             }
         }
-        
-//        if(txtUsuario.getText().equals("usuario")&&txtSenha.getText().equals("1234")){ // sistema de autenticação //
-//        
-//            
-//        }
-//        else{ 
-// 
-//             JOptionPane.showMessageDialog(null, "usuario ou senha incorretos");
-//        }
-      
-    }//GEN-LAST:event_btnEntrarActionPerformed
+      dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         setExtendedState(Tela.MAXIMIZED_BOTH);
